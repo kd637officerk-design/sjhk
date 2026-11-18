@@ -1,0 +1,38 @@
+{
+  "name": "symphony-8th",
+  "productName": "SYMPHONY 8TH",
+  "version": "1.0.0",
+  "description": "High-Res Photo Opener & Profile Gallery",
+  "main": "main.js",
+  "author": "Your Name",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win",
+    "dist": "electron-builder --win --publish never"
+  },
+  "devDependencies": {
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.symphony8th.app",
+    "productName": "SYMPHONY 8TH",
+    "directories": { "output": "dist", "buildResources": "build" },
+    "files": ["main.js", "src/**/*"],
+    "win": {
+      "icon": "build/icon.ico",
+      "target": [
+        { "target": "nsis", "arch": ["x64"] },
+        { "target": "portable", "arch": ["x64"] }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "build/icon.ico",
+      "uninstallerIcon": "build/icon.ico",
+      "createDesktopShortcut": true
+    }
+  }
+}
